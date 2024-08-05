@@ -1,19 +1,17 @@
-import { Link, BrowserRouter as Router } from "react-router-dom";
+import { Link, BrowserRouter as Router } from 'react-router-dom';
 
-import "./App.css";
-import LayoutWrapper from "./layout";
-import AllRoutes from "./layout/Routes";
+import './App.css';
+import LayoutWrapper from './layout';
+import AllRoutes from './layout/Routes';
 
 function App() {
   return (
     <>
       <Router>
-        <div style={{display: 'flex', justifyContent: 'center', marginBottom: '20px'}}>
-          <i>
-            (Click on the buttons bellow to access the different page layouts)
-          </i>
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+          <i>(Click on the buttons bellow to access the different page layouts)</i>
         </div>
-        <div style={{ display: "flex", gap: "2rem" }}>
+        <div style={{ display: 'flex', gap: '2rem' }}>
           <Link to="/">
             <button>Landing Page</button>
           </Link>
