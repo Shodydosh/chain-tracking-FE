@@ -1,3 +1,5 @@
+import React from "react";
+
 function Landing() {
   return (
     <div style={{ marginTop: '5rem' }}>

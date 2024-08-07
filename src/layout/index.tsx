@@ -1,7 +1,4 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
 import LayoutWrap from '../components/LayoutWrap';
 import { Routes, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -18,7 +15,6 @@ const NonAuthLayout = ({ children }) => {
   return (
     <>
       <div>
-        <Navbar />
         {children}
       </div>
     </>
@@ -37,7 +33,6 @@ const AuthLayout = ({ children }) => {
 function LayoutWrapper({ allroutes }) {
   return (
     <>
-      <Header />
       <LayoutWrap>
         <Routes>
           {allroutes?.map((route, index) => {
@@ -67,7 +62,6 @@ function LayoutWrapper({ allroutes }) {
           })}
         </Routes>
       </LayoutWrap>
-      <Footer />
     </>
   );
 }
