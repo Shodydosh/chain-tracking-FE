@@ -1,0 +1,22 @@
+{
+    "blockNumber": 20402221,
+    "blockHash": "0xbbc087f41623c5011a5bacf442d16081a248f847f09e3ed79cb7cfcd8ff4435f",
+    "timeStamp": 1722135611,
+    "hash": "0x8066b88807155696e576e537441ea5340b5800b736d3276625aefa8f612a26a8",
+    "nonce": 1878506,
+    "transactionIndex": 89,
+    "from": "0x4d9ff50ef4da947364bb9650892b2554e7be5e2b",
+    "to": "0x0b95993a39a363d99280ac950f5e4536ab5c5566",
+    "value": 40000000000000000,
+    "gas": 116448,
+    "gasPrice": 2458467617,
+    "input": "0x1a6952300000000000000000000000002f8c28c28841590a3b0062a638dd2d420e917fb8",
+    "methodId": "0x1a695230",
+    "functionName": "transfer(address addr)",
+    "contractAddress": "",
+    "cumulativeGasUsed": 14452920,
+    "txreceipt_status": 1,
+    "gasUsed": 55967,
+    "confirmations": 1834,
+    "isError": 0
+}
