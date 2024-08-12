@@ -6,10 +6,11 @@ import { Breadcrumb, Layout, Menu, Space, theme } from 'antd';
 const { Content, Sider } = Layout;
 
 type Props = {
+  auth?: boolean;
   children?: JSX.Element | JSX.Element[];
 };
 
-const LayoutWrap = ({ children }: Props) => {
+const LayoutWrap = ({ auth, children }: Props) => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -40,6 +41,7 @@ const LayoutWrap = ({ children }: Props) => {
             borderRadius: borderRadiusLG,
           }}
         >
+          {auth ? <h1>AUTH!</h1> : <h1>NO AUTH!</h1>}
           {children}
         </Content>
         <Footer />

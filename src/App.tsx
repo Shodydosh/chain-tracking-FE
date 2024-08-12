@@ -1,14 +1,28 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import LayoutWrapper from './layout';
-import AllRoutes from './layout/Routes';
+
+import Investigate from './pages/Investigate';
+import InvestigateTxHash from './pages/InvestigateTxHash';
+import InvestigateAddress from './pages/InvestigateAddress';
+import Landing from './pages/Landing';
+import Home from './pages/Home';
+import LayoutWrap from './components/LayoutWrap';
 
 function App() {
   return (
-    <Router>
-      <LayoutWrapper allroutes={AllRoutes} />
-    </Router>
+    <BrowserRouter>
+      <LayoutWrap auth={false}>
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/investigate/" element={<Investigate />} />
+          <Route path="/investigate/txhash/" element={<InvestigateTxHash />} />
+          <Route path="/investigate/address/" element={<InvestigateAddress />} />
+        </Routes>
+      </LayoutWrap>
+    </BrowserRouter>
   );
 }
 
