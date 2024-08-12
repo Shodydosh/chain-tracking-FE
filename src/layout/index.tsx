@@ -3,9 +3,10 @@ import LayoutWrap from '../components/LayoutWrap';
 import { Routes, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const ChatLayout = ({ children }) => {
+const DefaultLayout = ({ children }) => {
   return (
     <>
+      hi
       <div>{children}</div>
     </>
   );
@@ -15,15 +16,35 @@ const NonAuthLayout = ({ children }) => {
   return (
     <>
       <div>
+        hello
         {children}
       </div>
     </>
   );
 };
 
-const AuthLayout = ({ children }) => {
+const InvestigateLayout = ({ children }) => {
   return (
     <>
+      InvestigateLayout
+      <div>{children}</div>
+    </>
+  );
+};
+
+const InvestigateByTxHashLayout = ({ children }) => {
+  return (
+    <>
+      InvestigateByTxHashLayout
+      <div>{children}</div>
+    </>
+  );
+};
+
+const InvestigateByAddressLayout = ({ children }) => {
+  return (
+    <>
+      InvestigateByAddressLayout
       <div>{children}</div>
     </>
   );
@@ -36,6 +57,7 @@ function LayoutWrapper({ allroutes }) {
       <LayoutWrap>
         <Routes>
           {allroutes?.map((route, index) => {
+            console.log(route);
             return (
               <>
                 {
@@ -44,11 +66,15 @@ function LayoutWrapper({ allroutes }) {
                     path={route.path}
                     element={
                       <>
-                        {route.routeId === 3 ? (
-                          <AuthLayout>{route.element}</AuthLayout>
-                        ) : route.routeId === 2 ? (
-                          <ChatLayout>{route.element}</ChatLayout>
+                        {route.routeId === 0 ? (
+                          <DefaultLayout>{route.element}</DefaultLayout>
                         ) : route.routeId === 1 ? (
+                          <InvestigateLayout>{route.element}</InvestigateLayout>
+                        ) : route.routeId === 1_1 ? (
+                          <InvestigateByTxHashLayout>{route.element}</InvestigateByTxHashLayout>
+                        ) : route.routeId === 1_2 ? (
+                          <InvestigateByAddressLayout>{route.element}</InvestigateByAddressLayout>
+                        ) : route.routeId === 2 ? (
                           <NonAuthLayout>{route.element}</NonAuthLayout>
                         ) : (
                           <>Not Found</>
@@ -76,10 +102,16 @@ LayoutWrapper.propTypes = {
   ).isRequired,
 };
 
-AuthLayout.propTypes = {
+InvestigateLayout.propTypes = {
   children: PropTypes.node,
 };
-ChatLayout.propTypes = {
+InvestigateByTxHashLayout.propTypes = {
+  children: PropTypes.node,
+};
+InvestigateByAddressLayout.propTypes = {
+  children: PropTypes.node,
+};
+DefaultLayout.propTypes = {
   children: PropTypes.node,
 };
 NonAuthLayout.propTypes = {

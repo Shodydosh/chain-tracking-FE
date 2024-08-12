@@ -54,7 +54,7 @@ const Sidebar: React.FC<MenuProps> = () => {
           color={colorBgContainer}
           mode="inline"
           defaultSelectedKeys={['1']}
-          defaultOpenKeys={['sub1']}
+          defaultOpenKeys={['sub1', 'sub2']}
           style={{ borderRight: 0 }}
           items={DefaultMenuList(collapsed)}
         />

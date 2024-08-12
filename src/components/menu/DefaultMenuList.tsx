@@ -42,8 +42,16 @@ export const DefaultMenuList = (collapsed: boolean): MenuItem[] => [
       </div>
     ),
     [
-      getItem('Investigate by tx hash', '2', <MinusOutlined className="opacity-50" />),
-      getItem('Investigate by address', '3', <MinusOutlined className="opacity-50" />),
+      getItem(
+        'Investigate by tx hash',
+        'investigate/txhash/',
+        <MinusOutlined className="opacity-50" />
+      ),
+      getItem(
+        'Investigate by address',
+        'investigate/address/',
+        <MinusOutlined className="opacity-50" />
+      ),
     ]
   ),
   getItem(
