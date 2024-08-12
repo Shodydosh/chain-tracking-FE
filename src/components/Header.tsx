@@ -1,64 +1,23 @@
-import React, { useState } from 'react';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
-import type { MenuProps } from 'antd';
-import { Menu } from 'antd';
+import React from 'react'
+import { Input, Space, Button } from 'antd';
+import type { GetProps } from 'antd';
+const { Search } = Input;
 
-type MenuItem = Required<MenuProps>['items'][number];
+type SearchProps = GetProps<typeof Input.Search>;
+const onSearch: SearchProps['onSearch'] = (value, _e, info) => console.log(info?.source, value);
 
-const items: MenuItem[] = [
-  {
-    label: 'Navigation One',
-    key: 'mail',
-    icon: <MailOutlined />,
-  },
-  {
-    label: 'Navigation Two',
-    key: 'app',
-    icon: <AppstoreOutlined />,
-    disabled: true,
-  },
-  {
-    label: 'Navigation Three - Submenu',
-    key: 'SubMenu',
-    icon: <SettingOutlined />,
-    children: [
-      {
-        type: 'group',
-        label: 'Item 1',
-        children: [
-          { label: 'Option 1', key: 'setting:1' },
-          { label: 'Option 2', key: 'setting:2' },
-        ],
-      },
-      {
-        type: 'group',
-        label: 'Item 2',
-        children: [
-          { label: 'Option 3', key: 'setting:3' },
-          { label: 'Option 4', key: 'setting:4' },
-        ],
-      },
-    ],
-  },
-  {
-    key: 'alipay',
-    label: (
-      <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-        Navigation Four - Link
-      </a>
-    ),
-  },
-];
+const Header = () => {
+  return (
+    <div className='sticky top-0 w-full p-6 bg-white rounded-md shadow-sm'>
+      <div className='flex gap-4'>
+        <Search placeholder="search" onSearch={onSearch} className='w-full'/>
+        <Space direction='horizontal' className='gap-2'>
+          <Button type='primary'>Login</Button>
+          <Button>Register</Button>
+        </Space>
+      </div>
+    </div>
+  )
+}
 
-const Header: React.FC = () => {
-  const [current, setCurrent] = useState('mail');
-
-  const onClick: MenuProps['onClick'] = (e) => {
-    console.log('click ', e);
-    setCurrent(e.key);
-  };
-
-  return <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={items} />;
-};
-
-export default Header;
+export default Header

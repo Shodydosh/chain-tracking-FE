@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   DesktopOutlined,
   FileOutlined,
@@ -33,11 +34,14 @@ const items: MenuItem[] = [
   {
     type: 'divider',
   },
-  getItem('Investigate', '1', <div className='p-2 border border-gray-300 border-solid rounded-md shadow-md'><SearchOutlined/></div>, [
+  getItem('Investigate', 'sub1', <div className='p-2 border border-gray-300 border-solid rounded-md shadow-md'><SearchOutlined/></div>, [
     getItem('Investigate by tx hash', '2', <MinusOutlined className='opacity-50'/>),
     getItem('Investigate by address', '3', <MinusOutlined className='opacity-50'/>),
   ]),
-  getItem('Option 1', '1', <div className='p-2 border border-gray-300 border-solid rounded-md shadow-md'><PieChartOutlined /></div>),
+  getItem('Chart', 'sub2', <div className='p-2 border border-gray-300 border-solid rounded-md shadow-md'><PieChartOutlined /></div>, [
+    getItem('Chart 1', '2', <MinusOutlined className='opacity-50'/>),
+    getItem('Chart 2', '3', <MinusOutlined className='opacity-50'/>),
+  ]),
   getItem('Option 2', '2', <DesktopOutlined />),
   getItem('User', 'sub1', <UserOutlined />, [
     getItem('Tom', '3'),
@@ -56,20 +60,28 @@ const items: MenuItem[] = [
 
 const Sidebar: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const navigate = useNavigate();
+  
+  const onMenuClick = (path: string) => {
+    onChangeSelectedKey(path);
+    navigate(path);
+  };
+
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
   console.log(theme.useToken());
 
   return (
-    <Sider width={250} style={{ background: colorBgContainer }}>
+    <Sider width={250} className='shadow-sm' style={{ background: colorBgContainer }}>
       <div className='mt-4 mb-0 text-center'>
         <h3 className='text-lg font-bold'>Chain Tracking App</h3>
       </div>,
       <Menu
-        className='p-2 text-xs'
+        className='py-2 text-xs '
         color={colorBgContainer}
         mode="inline"
+        selectedKeys={[selectedKey]}
         defaultSelectedKeys={['1']}
         defaultOpenKeys={['sub1']}
         style={{ height: '100%', borderRight: 0 }}
