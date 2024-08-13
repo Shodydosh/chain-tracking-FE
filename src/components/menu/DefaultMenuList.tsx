@@ -44,12 +44,12 @@ export const DefaultMenuList = (collapsed: boolean): MenuItem[] => [
     [
       getItem(
         'Investigate by tx hash',
-        'investigate/txhash/',
+        'investigate-txhash/',
         <MinusOutlined className="opacity-50" />
       ),
       getItem(
         'Investigate by address',
-        'investigate/address/',
+        'investigate-address/',
         <MinusOutlined className="opacity-50" />
       ),
     ]

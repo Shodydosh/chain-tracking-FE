@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 
-import Investigate from './pages/Investigate';
 import InvestigateTxHash from './pages/InvestigateTxHash';
 import InvestigateAddress from './pages/InvestigateAddress';
 import Landing from './pages/Landing';
@@ -17,9 +16,8 @@ function App() {
         <Routes>
           <Route index element={<Home />} />
           <Route path="/" element={<Home />} />
-          <Route path="/investigate/" element={<Investigate />} />
-          <Route path="/investigate/txhash/" element={<InvestigateTxHash />} />
-          <Route path="/investigate/address/" element={<InvestigateAddress />} />
+          <Route path="/investigate-txhash/" element={<InvestigateTxHash />} />
+          <Route path="/investigate-address/" element={<InvestigateAddress />} />
         </Routes>
       </LayoutWrap>
     </BrowserRouter>

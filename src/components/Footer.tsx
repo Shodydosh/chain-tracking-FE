@@ -1,24 +1,21 @@
-import React from "react";
+import React from 'react';
 
 function Footer() {
-    return (
-      <div
-        style={{
-          backgroundColor: "#1a1a1a",
-          borderRadius: "10px",
-          minHeight: "220px",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          marginTop: "100px"
-        }}
-      >
-        <div>
-          <h3>Footer</h3>
-        </div>
+  return (
+    <div
+      className="pt-4"
+      style={{
+        opacity: 0.5,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <div>
+        <h3>Chain Tracking App</h3>
       </div>
-    );
-  }
-  
-  export default Footer;
-  
+    </div>
+  );
+}
+
+export default Footer;

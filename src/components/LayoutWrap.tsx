@@ -2,7 +2,8 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import Sidebar from './Sidebar';
-import { Breadcrumb, Layout, Menu, Space, theme } from 'antd';
+import Breadcrumb from './CustomBreadcrumb';
+import { Breadcrumb as bb, Layout, Menu, Space, theme } from 'antd';
 const { Content, Sider } = Layout;
 
 type Props = {
@@ -23,15 +24,7 @@ const LayoutWrap = ({ auth, children }: Props) => {
         }}
       >
         <Header />
-        <Breadcrumb
-          style={{
-            margin: '16px 0',
-          }}
-        >
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>List</Breadcrumb.Item>
-          <Breadcrumb.Item>App</Breadcrumb.Item>
-        </Breadcrumb>
+        <Breadcrumb />
         <Content
           style={{
             padding: 24,
@@ -41,7 +34,7 @@ const LayoutWrap = ({ auth, children }: Props) => {
             borderRadius: borderRadiusLG,
           }}
         >
-          {auth ? <h1>AUTH!</h1> : <h1>NO AUTH!</h1>}
+          {/* {auth ? <h1>AUTH!</h1> : <h1>NO AUTH!</h1>} */}
           {children}
         </Content>
         <Footer />
